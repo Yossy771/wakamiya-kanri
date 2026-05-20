@@ -276,6 +276,27 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 
 .omoi-right p { font-size: 16px; line-height: 2.2; color: #1e1208; margin-bottom: 28px; font-weight: 400; }
+
+/* 詳しい経歴へ飛ぶCTA */
+.omoi-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 12px;
+  padding: 14px 28px;
+  background: var(--ink); color: var(--white);
+  text-decoration: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.25s, gap 0.25s;
+}
+.omoi-cta:hover {
+  background: var(--asagi-d);
+  gap: 14px;
+}
+.omoi-cta svg { transition: transform 0.25s; }
+.omoi-cta:hover svg { transform: translateX(2px); }
+
 .omoi-highlight {
   background: #cef4f5; border-left: 5px solid var(--asagi);
   padding: 22px 26px; font-family: 'Noto Serif JP', serif;
@@ -749,16 +770,23 @@ footer {
         <div class="profile-list">
           <div class="profile-row"><strong>出身</strong>王子保・今宿町（生まれも育ちも）</div>
           <div class="profile-row"><strong>年齢</strong>61歳</div>
-          <div class="profile-row"><strong>家業</strong>新聞販売店・ケーブルTV勤務</div>
+          <div class="profile-row"><strong>職歴</strong>新聞販売店主、ケーブルテレビ役員</div>
           <div class="profile-row"><strong>活動歴</strong>PTA・スポ少・自治振興会・公民館など20数年</div>
         </div>
       </div>
       <div class="omoi-right reveal">
-        <p>生まれも育ちも王子保・今宿町。祖父母がこの地で商売を始め、その孫として61年をここで生きてきました。新聞販売店を営む家に育ち、地域の皆さんのおかげでご飯を食べさせてもらいました。</p>
+        <p>生まれも育ちも王子保・今宿町。祖父母がこの地で商売を始め、その孫として61年をここで生きてきました。呉服雑貨店や新聞販売店を営む家に育ち、地域の皆さんのおかげでご飯を食べさせてもらいました。</p>
         <div class="omoi-highlight">「私のカラダは王子保でできている」——その恩返しのつもりで、幼稚園後援会長・PTA・スポ少・自治振興会・公民館と、20数年間、地域活動を続けてきました。</div>
         <p>しかし活動を重ねるほど、王子保の活気がなくなっていることを強く感じていました。孫のオムツを替えながら「この子たちが大きくなるころ、ここはどうなっているんだろう」と不安になりました。</p>
         <p>高校生と高齢者が真剣に政治を語る光景に感動し、確信しました——<strong>「政治を自分ごとにすれば、町は盛り上がる」</strong></p>
-        <p><strong>人生二周目も、この王子保とともに歩んでいきたいと思っています。</strong></p>
+        <p><strong>人生二周目は、すべてを ここ王子保、そして越前市に 捧げます。</strong></p>
+
+        <a href="#career" class="omoi-cta">
+          <span>詳しいプロフィールを見る</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
