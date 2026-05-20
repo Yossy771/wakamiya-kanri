@@ -201,7 +201,7 @@ nav {
 
 /* 右：画像 */
 .hero-right {
-  display: flex; align-items: flex-end; justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   animation: fadeUp 0.9s 0.4s ease both;
 }
 .hero-photo {
@@ -209,28 +209,28 @@ nav {
   position: relative;
   aspect-ratio: 1 / 1;
 }
-/* 顔フレーム: しっかりした白枠＋影＋外側に淡い和柄リング */
+/* 顔フレーム: ソフトな角丸スクエア＋淡い外枠＋影 */
 .hero-photo::before {
-  content: ''; position: absolute; inset: -18px;
-  border: 1px solid rgba(0,180,192,0.25);
-  border-radius: 50%;
+  content: ''; position: absolute; inset: -14px;
+  border: 1px solid rgba(0,180,192,0.28);
+  border-radius: 24px;
   pointer-events: none;
 }
 .hero-photo img {
   width: 100%; height: 100%; display: block;
-  border-radius: 50%;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center;
   border: 6px solid var(--white);
   box-shadow:
-    0 0 0 1px rgba(0,180,192,0.25),
-    0 16px 40px rgba(44,31,20,0.22);
+    0 0 0 1px rgba(0,180,192,0.18),
+    0 18px 44px rgba(44,31,20,0.22);
   background: var(--warm);
 }
 @media (max-width: 900px) {
-  .hero-photo { max-width: 260px; }
-  .hero-photo img { border-width: 5px; }
-  .hero-photo::before { inset: -14px; }
+  .hero-photo { max-width: 280px; }
+  .hero-photo img { border-width: 5px; border-radius: 10px; }
+  .hero-photo::before { inset: -10px; border-radius: 20px; }
 }
 
 /* ── OMOI ── */
@@ -297,21 +297,39 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 
 /* 本文（1カラム・読みやすい幅） */
 .omoi-body {
-  max-width: 780px; margin: 0 auto;
+  max-width: 720px; margin: 0 auto;
 }
 .omoi-body p {
-  font-size: 16px; line-height: 2.2; color: #1e1208;
-  margin-bottom: 30px; font-weight: 400;
+  font-size: 16px; line-height: 2.0; color: #1e1208;
+  margin-bottom: 1.6em; font-weight: 400;
 }
+.omoi-body p:last-of-type { margin-bottom: 0; }
+
+/* 引用ブロック（プルクォート） */
+.omoi-pullquote {
+  font-family: 'Noto Serif JP', serif !important;
+  font-size: clamp(20px, 2.4vw, 26px) !important;
+  font-weight: 700; color: var(--asagi-d) !important;
+  text-align: center;
+  line-height: 1.8 !important;
+  padding: 32px 24px !important;
+  margin: 40px 0 !important;
+  border-top: 1px solid rgba(0,180,192,0.25);
+  border-bottom: 1px solid rgba(0,180,192,0.25);
+  letter-spacing: 0.04em;
+}
+
+/* 締めの一言 */
 .omoi-closing {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(17px, 1.9vw, 21px); font-weight: 700;
-  color: var(--ink);
+  font-family: 'Noto Serif JP', serif !important;
+  font-size: clamp(18px, 2vw, 22px) !important;
+  font-weight: 700;
+  color: var(--ink) !important;
   background: linear-gradient(90deg, rgba(0,180,192,0.10) 0%, rgba(0,180,192,0.02) 80%, transparent 100%);
   border-left: 4px solid var(--asagi);
-  padding: 22px 28px;
-  margin: 48px 0 28px;
-  line-height: 1.9;
+  padding: 24px 28px !important;
+  margin: 48px 0 32px !important;
+  line-height: 1.85 !important;
 }
 
 /* 詳しい経歴へ飛ぶCTA */
@@ -813,11 +831,22 @@ footer {
     </div>
 
     <div class="omoi-body reveal">
-      <p>生まれも育ちも王子保・今宿町。祖父母がこの地で商売を始め、その孫として61年をここで生きてきました。呉服雑貨店や新聞販売店を営む家に育ち、地域の皆さんのおかげでご飯を食べさせてもらいました。</p>
-      <p>その恩返しのつもりで、幼稚園後援会長・PTA・スポ少・自治振興会・公民館と、20数年間、地域活動を続けてきました。</p>
-      <p>しかし活動を重ねるほど、王子保の活気がなくなっていることを強く感じていました。孫のオムツを替えながら「この子たちが大きくなるころ、ここはどうなっているんだろう」と不安になりました。</p>
-      <p>高校生と高齢者が真剣に政治を語る光景に感動し、確信しました——<strong>「政治を自分ごとにすれば、町は盛り上がる」</strong></p>
-      <p class="omoi-closing">人生二周目は、すべてを ここ王子保、そして越前市に 捧げます。</p>
+      <p>生まれも育ちも王子保・今宿町。</p>
+
+      <p>祖父母がこの地で商売を始め、その孫として61年をここで生きてきました。呉服雑貨店や新聞販売店を営む家に育ち、地域の皆さんのおかげでご飯を食べさせてもらいました。</p>
+
+      <p>その恩返しのつもりで、幼稚園後援会長・PTA・スポ少・自治振興会・公民館と、20数年間にわたり地域活動を続けてきました。</p>
+
+      <p>しかし、活動を重ねるほど、王子保の活気がなくなっていくことを強く感じるようになりました。</p>
+
+      <p>孫のオムツを替えながら、ふと思いました——「この子たちが大きくなるころ、ここはどうなっているんだろう」</p>
+
+      <p>そんなとき、高校生と高齢者が真剣に政治を語る光景に出会いました。胸が熱くなりました。そして、確信しました。</p>
+
+      <p class="omoi-pullquote">「政治を自分ごとにすれば、<br>町は盛り上がる」</p>
+
+      <p class="omoi-closing">人生二周目は、すべてを<br>ここ王子保、そして越前市に 捧げます。</p>
+
       <a href="#career" class="omoi-cta">
         <span>詳しいプロフィールを見る</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
