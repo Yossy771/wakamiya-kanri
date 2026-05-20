@@ -159,35 +159,44 @@ nav {
 
 .hero-catch {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(16px, 2vw, 22px); font-weight: 600;
-  color: var(--ink); line-height: 2;
+  font-size: clamp(16px, 1.8vw, 20px); font-weight: 600;
+  color: var(--ink); line-height: 2.1;
   padding-left: 20px;
   border-left: 3px solid var(--asagi);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   animation: fadeUp 0.8s 0.2s ease both;
+  letter-spacing: 0.02em;
 }
 
 .hero-stats {
-  display: flex; gap: clamp(20px, 4vw, 48px);
+  display: flex; align-items: stretch;
+  gap: 0;
   animation: fadeUp 0.8s 0.3s ease both;
-  flex-wrap: wrap;
+  border-top: 1px solid rgba(0,180,192,0.18);
+  border-bottom: 1px solid rgba(0,180,192,0.18);
+  padding: 18px 0;
 }
+.hero-stat {
+  flex: 1 1 0;
+  padding: 0 clamp(14px, 2.5vw, 28px);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-stat + .hero-stat { border-left: 1px solid rgba(0,180,192,0.18); }
 .hero-stat-num {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(28px, 4.5vw, 38px); font-weight: 900; color: var(--asagi); line-height: 1;
-  white-space: nowrap;
+  font-size: clamp(28px, 4.2vw, 36px); font-weight: 900; color: var(--asagi);
+  line-height: 1; white-space: nowrap;
+  display: flex; align-items: baseline;
 }
 .hero-stat-unit {
-  font-size: 0.55em; margin-left: 4px; color: var(--asagi-d); font-weight: 700;
-}
-.hero-stat-divider { position: relative; padding-left: clamp(20px, 4vw, 48px); }
-.hero-stat-divider::before {
-  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
-  width: 1px; background: rgba(0,180,192,0.25);
+  font-size: 0.5em; margin-left: 6px;
+  color: var(--asagi-d); font-weight: 700;
+  letter-spacing: 0.05em;
 }
 .hero-stat-label {
   font-size: 11px; color: var(--bark); letter-spacing: 0.08em;
-  margin-top: 6px; line-height: 1.5;
+  margin-top: 8px; line-height: 1.6;
+  font-weight: 500;
 }
 
 /* 右：画像 */
@@ -200,26 +209,28 @@ nav {
   position: relative;
   aspect-ratio: 1 / 1;
 }
+/* 顔フレーム: しっかりした白枠＋影＋外側に淡い和柄リング */
 .hero-photo::before {
-  content: ''; position: absolute; inset: -10px;
-  border: 1px solid rgba(0,180,192,0.35);
+  content: ''; position: absolute; inset: -18px;
+  border: 1px solid rgba(0,180,192,0.25);
   border-radius: 50%;
-}
-.hero-photo::after {
-  content: ''; position: absolute; inset: -22px;
-  border: 1px solid rgba(0,180,192,0.18);
-  border-radius: 50%;
+  pointer-events: none;
 }
 .hero-photo img {
   width: 100%; height: 100%; display: block;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  filter: drop-shadow(0 12px 32px rgba(44,31,20,0.18));
+  border: 6px solid var(--white);
+  box-shadow:
+    0 0 0 1px rgba(0,180,192,0.25),
+    0 16px 40px rgba(44,31,20,0.22);
+  background: var(--warm);
 }
-/* スマホでは円形を少し大きく */
 @media (max-width: 900px) {
-  .hero-photo { max-width: 280px; }
+  .hero-photo { max-width: 260px; }
+  .hero-photo img { border-width: 5px; }
+  .hero-photo::before { inset: -14px; }
 }
 
 /* ── OMOI ── */
@@ -250,9 +261,19 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   line-height: 2; padding: 32px 0 32px 24px;
   border-left: 4px solid var(--asagi); margin-bottom: 32px;
 }
-.profile-list { display: flex; flex-direction: column; gap: 14px; }
-.profile-row { display: flex; gap: 12px; font-size: 14px; color: #4a4040; line-height: 1.8; }
-.profile-row strong { color: #1a1008; min-width: 80px; font-weight: 700; }
+.profile-list { display: flex; flex-direction: column; }
+.profile-row {
+  display: grid; grid-template-columns: 84px 1fr; gap: 16px;
+  font-size: 14px; color: #4a4040; line-height: 1.8;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(0,180,192,0.18);
+}
+.profile-row:last-child { border-bottom: none; }
+.profile-row strong {
+  color: var(--asagi-d); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.08em;
+  padding-top: 4px;
+}
 
 .omoi-right p { font-size: 16px; line-height: 2.2; color: #1e1208; margin-bottom: 28px; font-weight: 400; }
 .omoi-highlight {
