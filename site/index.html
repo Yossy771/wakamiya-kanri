@@ -251,21 +251,41 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   color: #1a1008; margin-bottom: 64px; line-height: 1.4; font-weight: 900;
 }
 
-.omoi-grid {
-  display: grid; grid-template-columns: 300px 1fr; gap: 80px; align-items: start;
+/* ── OMOI レイアウト ── */
+.omoi-top {
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  gap: 56px; align-items: stretch;
+  margin-bottom: 72px;
 }
-.omoi-left { position: sticky; top: 80px; }
+.omoi-photo {
+  overflow: hidden; border-radius: 4px;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+  min-height: 480px; height: 100%;
+}
+.omoi-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s ease;
+}
+.omoi-photo:hover img { transform: scale(1.04); }
+
+.omoi-side {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8px 0;
+}
 .omoi-quote {
   font-family: 'Noto Serif JP', serif;
-  font-size: 20px; font-weight: 600; color: var(--ink);
-  line-height: 2; padding: 32px 0 32px 24px;
-  border-left: 4px solid var(--asagi); margin-bottom: 32px;
+  font-size: clamp(22px, 2.6vw, 30px); font-weight: 700;
+  color: var(--ink); line-height: 1.85;
+  padding-left: 24px;
+  border-left: 4px solid var(--asagi);
+  margin-bottom: 36px;
 }
+
 .profile-list { display: flex; flex-direction: column; }
 .profile-row {
   display: grid; grid-template-columns: 84px 1fr; gap: 16px;
   font-size: 14px; color: #4a4040; line-height: 1.8;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px dashed rgba(0,180,192,0.18);
 }
 .profile-row:last-child { border-bottom: none; }
@@ -275,12 +295,29 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   padding-top: 4px;
 }
 
-.omoi-right p { font-size: 16px; line-height: 2.2; color: #1e1208; margin-bottom: 28px; font-weight: 400; }
+/* 本文（1カラム・読みやすい幅） */
+.omoi-body {
+  max-width: 780px; margin: 0 auto;
+}
+.omoi-body p {
+  font-size: 16px; line-height: 2.2; color: #1e1208;
+  margin-bottom: 30px; font-weight: 400;
+}
+.omoi-closing {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(17px, 1.9vw, 21px); font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(90deg, rgba(0,180,192,0.10) 0%, rgba(0,180,192,0.02) 80%, transparent 100%);
+  border-left: 4px solid var(--asagi);
+  padding: 22px 28px;
+  margin: 48px 0 28px;
+  line-height: 1.9;
+}
 
 /* 詳しい経歴へ飛ぶCTA */
 .omoi-cta {
   display: inline-flex; align-items: center; gap: 10px;
-  margin-top: 12px;
+  margin-top: 4px;
   padding: 14px 28px;
   background: var(--ink); color: var(--white);
   text-decoration: none;
@@ -288,20 +325,18 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-size: 13px; font-weight: 700;
   letter-spacing: 0.12em;
   border-radius: 2px;
-  transition: background 0.25s, transform 0.25s, gap 0.25s;
+  transition: background 0.25s, gap 0.25s;
 }
-.omoi-cta:hover {
-  background: var(--asagi-d);
-  gap: 14px;
-}
+.omoi-cta:hover { background: var(--asagi-d); gap: 14px; }
 .omoi-cta svg { transition: transform 0.25s; }
 .omoi-cta:hover svg { transform: translateX(2px); }
 
-.omoi-highlight {
-  background: #cef4f5; border-left: 5px solid var(--asagi);
-  padding: 22px 26px; font-family: 'Noto Serif JP', serif;
-  font-size: 16px; font-weight: 700; color: #0a2a2b;
-  line-height: 2; margin: 32px 0;
+@media (max-width: 900px) {
+  .omoi-top { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; }
+  .omoi-photo { min-height: 240px; }
+  .omoi-quote { font-size: 22px; padding-left: 18px; margin-bottom: 24px; }
+  .omoi-body p { font-size: 15px; line-height: 2.0; margin-bottom: 24px; }
+  .omoi-closing { padding: 18px 20px; margin: 32px 0 20px; }
 }
 
 /* omoi 写真 */
@@ -761,12 +796,13 @@ footer {
   <section id="omoi">
     <div class="section-label">ABOUT</div>
     <div class="section-title">若宮こういちについて</div>
-    <div class="omoi-grid">
-      <div class="omoi-left reveal">
-        <div class="omoi-photo" style="margin-bottom:28px;">
-          <img src="./images/activity-2.jpg" alt="地域での若宮こういち" loading="lazy">
-        </div>
-        <div class="omoi-quote">「私のカラダは<br>王子保で<br>できている」</div>
+
+    <div class="omoi-top">
+      <div class="omoi-photo reveal">
+        <img src="./images/activity-2.jpg" alt="地域の皆さんと対話する若宮こういち" loading="lazy">
+      </div>
+      <div class="omoi-side reveal">
+        <div class="omoi-quote">「私のカラダは王子保でできている」</div>
         <div class="profile-list">
           <div class="profile-row"><strong>出身</strong>王子保・今宿町（生まれも育ちも）</div>
           <div class="profile-row"><strong>年齢</strong>61歳</div>
@@ -774,20 +810,20 @@ footer {
           <div class="profile-row"><strong>活動歴</strong>PTA・スポ少・自治振興会・公民館など20数年</div>
         </div>
       </div>
-      <div class="omoi-right reveal">
-        <p>生まれも育ちも王子保・今宿町。祖父母がこの地で商売を始め、その孫として61年をここで生きてきました。呉服雑貨店や新聞販売店を営む家に育ち、地域の皆さんのおかげでご飯を食べさせてもらいました。</p>
-        <div class="omoi-highlight">「私のカラダは王子保でできている」——その恩返しのつもりで、幼稚園後援会長・PTA・スポ少・自治振興会・公民館と、20数年間、地域活動を続けてきました。</div>
-        <p>しかし活動を重ねるほど、王子保の活気がなくなっていることを強く感じていました。孫のオムツを替えながら「この子たちが大きくなるころ、ここはどうなっているんだろう」と不安になりました。</p>
-        <p>高校生と高齢者が真剣に政治を語る光景に感動し、確信しました——<strong>「政治を自分ごとにすれば、町は盛り上がる」</strong></p>
-        <p><strong>人生二周目は、すべてを ここ王子保、そして越前市に 捧げます。</strong></p>
+    </div>
 
-        <a href="#career" class="omoi-cta">
-          <span>詳しいプロフィールを見る</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+    <div class="omoi-body reveal">
+      <p>生まれも育ちも王子保・今宿町。祖父母がこの地で商売を始め、その孫として61年をここで生きてきました。呉服雑貨店や新聞販売店を営む家に育ち、地域の皆さんのおかげでご飯を食べさせてもらいました。</p>
+      <p>その恩返しのつもりで、幼稚園後援会長・PTA・スポ少・自治振興会・公民館と、20数年間、地域活動を続けてきました。</p>
+      <p>しかし活動を重ねるほど、王子保の活気がなくなっていることを強く感じていました。孫のオムツを替えながら「この子たちが大きくなるころ、ここはどうなっているんだろう」と不安になりました。</p>
+      <p>高校生と高齢者が真剣に政治を語る光景に感動し、確信しました——<strong>「政治を自分ごとにすれば、町は盛り上がる」</strong></p>
+      <p class="omoi-closing">人生二周目は、すべてを ここ王子保、そして越前市に 捧げます。</p>
+      <a href="#career" class="omoi-cta">
+        <span>詳しいプロフィールを見る</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </section>
 </div>
