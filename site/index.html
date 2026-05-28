@@ -537,26 +537,26 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 .policy-modal {
   background: #1a2b2d; border: 1px solid rgba(0,184,192,0.4);
   border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  max-width: 680px; width: 100%; max-height: 85vh;
+  max-width: 780px; width: 100%; max-height: 85vh;
   overflow-y: auto; position: relative;
   animation: modalIn 0.3s ease;
 }
 @keyframes modalIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 .policy-modal-header {
   background: rgba(0,138,150,0.22); border-bottom: 1px solid rgba(0,184,192,0.2);
-  padding: 28px 36px 24px;
+  padding: 32px 44px 28px;
 }
 .policy-modal-num { font-size: 11px; color: #4db8bc; letter-spacing: 0.3em; margin-bottom: 8px; }
-.policy-modal-title { font-family: 'Noto Serif JP', serif; font-size: 24px; font-weight: 900; color: #fff; line-height: 1.5; }
-.policy-modal-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; letter-spacing: 0.1em; }
-.policy-modal-body { padding: 32px 36px; }
-.policy-section { margin-bottom: 28px; }
+.policy-modal-title { font-family: 'Noto Serif JP', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 900; color: #fff; line-height: 1.5; }
+.policy-modal-sub { font-size: 14px; color: rgba(255,255,255,0.62); margin-top: 8px; letter-spacing: 0.1em; }
+.policy-modal-body { padding: 40px 44px; }
+.policy-section { margin-bottom: 34px; }
 .policy-section-title {
-  font-size: 13px; font-weight: 700; color: #4db8bc;
-  letter-spacing: 0.15em; margin-bottom: 12px;
+  font-size: 16px; font-weight: 800; color: #4db8bc;
+  letter-spacing: 0.08em; margin-bottom: 14px;
   padding-left: 12px; border-left: 3px solid #4db8bc;
 }
-.policy-section-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 2; }
+.policy-section-text { font-size: clamp(18px, 2vw, 21px); color: rgba(255,255,255,0.88); line-height: 2.05; font-weight: 500; }
 .policy-close {
   position: absolute; top: 16px; right: 20px;
   background: transparent; border: none; color: rgba(255,255,255,0.5);
@@ -919,6 +919,14 @@ footer {
   .yumi-intro-main,
   .yumi-intro-side { padding: 24px 22px; }
   .yumi-grid { grid-template-columns: 1fr; gap: 2px; }
+  .policy-modal { max-height: 88vh; }
+  .policy-modal-header { padding: 24px 24px 20px; }
+  .policy-modal-title { font-size: 24px; }
+  .policy-modal-sub { font-size: 13px; }
+  .policy-modal-body { padding: 28px 24px; }
+  .policy-section { margin-bottom: 30px; }
+  .policy-section-title { font-size: 14px; }
+  .policy-section-text { font-size: 17px; line-height: 2; }
   .sns-list { grid-template-columns: 1fr; }
   .sns-box { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 24px; }
   footer { padding: 48px 24px; }
