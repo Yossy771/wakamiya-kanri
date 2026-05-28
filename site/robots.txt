@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yossy771.github.io/wakamiya-kanri/site/sitemap.xml
