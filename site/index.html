@@ -351,6 +351,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   max-width: 760px;
   overflow-wrap: anywhere;
 }
+.omoi-quote-line { display: inline; }
 
 .profile-list {
   display: grid;
@@ -443,14 +444,17 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 @media (max-width: 900px) {
   .omoi-photo { aspect-ratio: 4 / 3; }
   .omoi-quote { font-size: 22px; padding-left: 18px; margin-bottom: 24px; }
+  .omoi-quote-line,
+  .omoi-pullquote-line,
+  .career-quote-line {
+    display: block !important;
+  }
   .profile-list { grid-template-columns: 1fr; }
   .profile-row { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
   .profile-row:nth-last-child(-n+2) { border-bottom: 1px solid rgba(0,180,192,0.14); }
   .profile-row:last-child { border-bottom: none; }
   .omoi-body p { font-size: 15px; line-height: 2.0; margin-bottom: 24px; }
   .omoi-pullquote { text-align: center; }
-  .omoi-pullquote-line,
-  .career-quote-line { display: block; }
   .omoi-closing { padding: 18px 20px; margin: 32px 0 20px; }
 }
 
@@ -1285,7 +1289,7 @@ footer {
         <img src="./images/activity-2.jpg" alt="地域の皆さんと対話する若宮こういち" loading="lazy">
       </div>
       <div class="omoi-side reveal">
-        <div class="omoi-quote">「私のカラダは王子保でできている」</div>
+        <div class="omoi-quote"><span class="omoi-quote-line">「私のカラダは</span><span class="omoi-quote-line">王子保でできている」</span></div>
         <div class="profile-list">
           <div class="profile-row"><strong>出身</strong>王子保・今宿町（生まれも育ちも）</div>
           <div class="profile-row"><strong>年齢</strong>61歳</div>
