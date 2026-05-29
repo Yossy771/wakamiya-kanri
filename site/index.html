@@ -143,16 +143,14 @@ nav {
 /* 背景画像 */
 .hero-bg-img {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(60% 70% at 80% 30%, rgba(0,180,192,0.10) 0%, transparent 60%),
-    radial-gradient(50% 60% at 10% 90%, rgba(200,168,75,0.08) 0%, transparent 60%),
-    linear-gradient(180deg, var(--warm) 0%, #ede5d7 100%);
+  background: linear-gradient(180deg, var(--warm) 0%, #eee7da 100%);
 }
 
 /* 和柄パターン overlay */
 .hero-pattern {
   position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='28' fill='none' stroke='%234db8bc' stroke-width='0.4' stroke-opacity='0.15'/%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%234db8bc' stroke-width='0.3' stroke-opacity='0.1'/%3E%3Cline x1='2' y1='30' x2='58' y2='30' stroke='%234db8bc' stroke-width='0.3' stroke-opacity='0.08'/%3E%3Cline x1='30' y1='2' x2='30' y2='58' stroke='%234db8bc' stroke-width='0.3' stroke-opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.34;
 }
 
 .hero-inner {
@@ -231,6 +229,35 @@ nav {
   font-size: 11px; color: var(--bark); letter-spacing: 0.08em;
   margin-top: 8px; line-height: 1.6;
   font-weight: 500;
+}
+
+.hero-brief {
+  margin-top: 22px;
+  border: 1px solid rgba(0,180,192,0.22);
+  background: rgba(255,255,255,0.62);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  animation: fadeUp 0.8s 0.36s ease both;
+}
+.hero-brief-item {
+  padding: 14px 18px;
+  border-left: 1px solid rgba(0,180,192,0.18);
+}
+.hero-brief-item:first-child { border-left: none; }
+.hero-brief-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--asagi-d);
+  margin-bottom: 6px;
+}
+.hero-brief-text {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.6;
 }
 
 /* 右：画像 */
@@ -508,7 +535,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .yumi-card:hover {
   background: rgba(77,184,188,0.1);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 .yumi-card:focus-visible {
   outline: 2px solid #4db8bc;
@@ -726,7 +753,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   transition: transform 0.4s, box-shadow 0.4s;
 }
 .activity-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: 0 14px 36px rgba(44,31,20,0.16);
 }
 .activity-item-photo {
@@ -912,6 +939,9 @@ footer {
   }
   .hero-right { display: flex; order: -1; }
   .hero-photo { max-width: 230px; }
+  .hero-brief { grid-template-columns: 1fr; }
+  .hero-brief-item { border-left: none; border-top: 1px solid rgba(0,180,192,0.16); }
+  .hero-brief-item:first-child { border-top: none; }
   section { padding: 64px 24px; }
   .omoi-grid { grid-template-columns: 1fr; gap: 40px; }
   .omoi-left { position: static; }
@@ -992,6 +1022,20 @@ footer {
         <div class="hero-stat hero-stat-divider">
           <div class="hero-stat-num">20<span class="hero-stat-unit">年+</span></div>
           <div class="hero-stat-label">地域活動の経験</div>
+        </div>
+      </div>
+      <div class="hero-brief" aria-label="公開情報">
+        <div class="hero-brief-item">
+          <span class="hero-brief-label">公開情報</span>
+          <span class="hero-brief-text">プロフィール・経歴・3つのテーマ</span>
+        </div>
+        <div class="hero-brief-item">
+          <span class="hero-brief-label">最終更新</span>
+          <span class="hero-brief-text">2026年5月29日</span>
+        </div>
+        <div class="hero-brief-item">
+          <span class="hero-brief-label">発信</span>
+          <span class="hero-brief-text">Instagram・公式LINE</span>
         </div>
       </div>
     </div>
