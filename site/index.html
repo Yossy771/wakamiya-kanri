@@ -709,28 +709,32 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   border-bottom: 2px solid var(--asagi-l);
 }
 
-.career-timeline { display: flex; flex-direction: column; }
+.career-timeline {
+  display: flex; flex-direction: column;
+  border-top: 1px solid rgba(0,180,192,0.20);
+}
 .career-item {
-  display: grid; grid-template-columns: 130px 1fr; gap: 32px;
-  padding: 28px 0;
-  border-bottom: 1px dashed rgba(0,180,192,0.22);
+  display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 34px;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(0,180,192,0.16);
 }
 .career-item:last-child { border-bottom: none; }
 .career-era {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 18px; font-weight: 900; color: var(--asagi);
-  letter-spacing: 0.04em;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px; font-weight: 800; color: var(--asagi-d);
+  letter-spacing: 0.12em;
+  padding-top: 4px;
 }
 .career-body h4 {
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px; font-weight: 700; color: #1a1008;
   margin-bottom: 8px; margin-top: 18px;
   line-height: 1.5;
 }
 .career-body h4:first-child { margin-top: 0; }
 .career-body p {
-  font-size: 14px; line-height: 2; color: #2c1f14;
-  margin-bottom: 0;
+  font-size: 14px; line-height: 2; color: #3d332a;
+  margin-bottom: 0; max-width: 760px;
 }
 .career-body small { color: var(--bark); font-size: 12px; }
 
@@ -1171,7 +1175,7 @@ footer {
           <div class="career-era">50代〜</div>
           <div class="career-body">
             <h4>丹南ケーブルテレビ（株） 取締役</h4>
-            <p>コロナ禍で十分活動できなかったですが、2期勤めました。</p>
+            <p>コロナ禍の影響で思うように活動できない時期もありましたが、2期にわたり務めました。</p>
             <h4>越前市 王子保公民館 館長</h4>
             <p>40年に一度の改修工事を経験し、行政の仕組み・取り組みも学ばせていただきました。<small>（2026年4月退任）</small></p>
           </div>
