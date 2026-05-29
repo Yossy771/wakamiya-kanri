@@ -1042,22 +1042,48 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  body { font-size: 16px; }
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-burger { display: block; }
   .hero-inner {
     grid-template-columns: 1fr;
-    padding: 84px 22px 56px;
+    padding: 82px 20px 52px;
     gap: 28px;
   }
+  .hero-name { font-size: clamp(44px, 13vw, 58px); line-height: 1.08; }
+  .hero-name-roman { margin-bottom: 30px; }
+  .hero-catch { font-size: 16px; line-height: 1.85; margin-bottom: 30px; }
+  .hero-stats { flex-direction: column; padding: 0; }
+  .hero-stat { padding: 16px 0; }
+  .hero-stat + .hero-stat { border-left: none; border-top: 1px solid rgba(0,180,192,0.18); }
+  .hero-stat-label { font-size: 12px; line-height: 1.65; }
   .hero-right { display: flex; order: -1; }
   .hero-photo { max-width: 230px; }
   .hero-brief { grid-template-columns: 1fr; }
   .hero-brief-item { border-left: none; border-top: 1px solid rgba(0,180,192,0.16); }
   .hero-brief-item:first-child { border-top: none; }
-  section { padding: 64px 24px; }
+  .hero-brief-label { font-size: 11px; }
+  .hero-brief-text { font-size: 14px; line-height: 1.7; }
+  section { padding: 58px 20px; }
+  .section-label { font-size: 11px; margin-bottom: 14px; letter-spacing: 0.14em; }
+  .section-title { font-size: clamp(28px, 8vw, 34px); line-height: 1.35; margin-bottom: 38px; }
   .omoi-grid { grid-template-columns: 1fr; gap: 40px; }
   .omoi-left { position: static; }
+  .profile-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .profile-row strong { font-size: 12px; line-height: 1.55; padding-top: 0; }
+  .omoi-body p { font-size: 16px; line-height: 1.92; margin-bottom: 24px; }
+  .omoi-pullquote { font-size: 20px !important; line-height: 1.75 !important; padding: 24px 20px !important; }
+  .omoi-closing { font-size: 18px !important; line-height: 1.75 !important; padding: 20px 20px !important; }
+  .omoi-cta { width: 100%; justify-content: center; min-height: 48px; font-size: 13px; }
+  .career-quote { font-size: 18px; line-height: 1.8; margin-bottom: 24px; }
+  .career-bio-row > div { grid-template-columns: 1fr; gap: 4px; }
+  .career-bio-row strong { font-size: 12px; line-height: 1.55; padding-top: 0; }
+  .career-body p,
+  .career-list li,
+  .hometown-text p,
+  .sns-text p { font-size: 15px; line-height: 1.9; }
+  .career-list strong { font-size: 15px; line-height: 1.55; }
   .yumi-intro { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
   .yumi-intro-main,
   .yumi-intro-side { padding: 24px 22px; }
@@ -1082,6 +1108,8 @@ footer {
   .policy-section-text { font-size: 17px; line-height: 2; }
   .sns-list { grid-template-columns: 1fr; }
   .sns-box { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 24px; }
+  .sns-actions { width: 100%; }
+  .sns-btn { width: 100%; min-height: 48px; }
   footer { padding: 48px 24px; }
 }
 </style>
