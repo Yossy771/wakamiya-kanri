@@ -61,6 +61,8 @@ body {
   color: var(--ink);
   overflow-x: hidden;
   cursor: default;
+  text-align: left;
+  line-break: strict;
 }
 
 /* ── 和紙テクスチャ overlay ── */
@@ -242,6 +244,7 @@ nav {
 .hero-brief-item {
   padding: 14px 18px;
   border-left: 1px solid rgba(0,180,192,0.18);
+  min-width: 0;
 }
 .hero-brief-item:first-child { border-left: none; }
 .hero-brief-label {
@@ -258,6 +261,7 @@ nav {
   font-weight: 700;
   color: var(--ink);
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 /* 右：画像 */
@@ -359,6 +363,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .profile-row {
   display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px;
+  align-items: start;
   font-size: 14px; color: #4a4040; line-height: 1.8;
   padding: 14px 2px;
   border-bottom: 1px solid rgba(0,180,192,0.14);
@@ -369,8 +374,10 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 .profile-row strong {
   color: var(--asagi-d); font-weight: 700;
   font-size: 11px; letter-spacing: 0.08em;
-  padding-top: 4px;
+  line-height: 1.8;
+  padding-top: 1px;
 }
+.profile-row > * { min-width: 0; }
 
 /* 本文（1カラム・読みやすい幅） */
 .omoi-body {
@@ -559,6 +566,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   transition: background 0.4s, transform 0.4s;
   overflow: hidden;
   cursor: pointer;
+  min-width: 0;
 }
 .yumi-card:hover {
   background: rgba(77,184,188,0.1);
@@ -651,13 +659,16 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-family: 'Noto Serif JP', serif;
   font-size: 24px; font-weight: 900; color: var(--white);
   margin-bottom: 12px; line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 .yumi-sub {
   font-size: 17px; letter-spacing: 0.12em;
   color: var(--asagi); font-weight: 700; margin-bottom: 20px; letter-spacing: 0.15em;
+  overflow-wrap: anywhere;
 }
 .yumi-desc {
   font-size: 18px; color: rgba(255,255,255,0.82); line-height: 2;
+  overflow-wrap: anywhere;
 }
 
 /* 矢が刺さる演出 */
@@ -688,15 +699,20 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .career-bio-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
 .career-bio-row > div {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
   font-size: 14px; line-height: 1.8; color: #2c1f14;
   padding: 6px 0;
-  display: flex; gap: 12px;
+  min-width: 0;
 }
 .career-bio-row strong {
-  display: inline-block; min-width: 88px; flex-shrink: 0;
+  display: inline-block;
   color: var(--asagi-d); font-weight: 700;
   font-size: 11px; letter-spacing: 0.08em;
-  padding-top: 4px;
+  line-height: 1.8;
+  padding-top: 1px;
 }
 
 .career-section { margin-top: 56px; }
@@ -715,6 +731,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .career-item {
   display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 34px;
+  align-items: start;
   padding: 30px 0;
   border-bottom: 1px solid rgba(0,180,192,0.16);
 }
@@ -723,18 +740,22 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 13px; font-weight: 800; color: var(--asagi-d);
   letter-spacing: 0.12em;
-  padding-top: 4px;
+  line-height: 1.6;
+  padding-top: 2px;
 }
 .career-body h4 {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px; font-weight: 700; color: #1a1008;
   margin-bottom: 8px; margin-top: 18px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
+.career-body { min-width: 0; }
 .career-body h4:first-child { margin-top: 0; }
 .career-body p {
   font-size: 14px; line-height: 2; color: #3d332a;
   margin-bottom: 0; max-width: 760px;
+  overflow-wrap: anywhere;
 }
 .career-body small { color: var(--bark); font-size: 12px; }
 
@@ -746,26 +767,33 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .career-list { list-style: none; padding: 0; }
 .career-list li {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.34fr) minmax(0, 1fr);
+  gap: 8px 24px;
+  align-items: start;
   padding: 16px 0; font-size: 14px; line-height: 1.8;
   border-bottom: 1px dashed rgba(0,180,192,0.15);
 }
 .career-list li:last-child { border-bottom: none; }
 .career-list strong {
-  display: inline-block; margin-right: 12px; color: #1a1008;
+  display: inline-block; margin-right: 0; color: #1a1008;
   font-weight: 700; font-size: 15px;
+  line-height: 1.8;
 }
 .career-note {
-  display: block; margin-top: 6px; color: var(--bark);
+  display: block; grid-column: 2; margin-top: 0; color: var(--bark);
   font-size: 13px; line-height: 1.85;
 }
 
 @media (max-width: 900px) {
   .career-intro { padding: 24px 22px; margin-bottom: 40px; }
   .career-bio-row { grid-template-columns: 1fr; gap: 0; }
-  .career-bio-row > div { padding: 8px 0; border-bottom: 1px dashed rgba(0,180,192,0.15); }
+  .career-bio-row > div { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; padding: 8px 0; border-bottom: 1px dashed rgba(0,180,192,0.15); }
   .career-bio-row > div:last-child { border-bottom: none; }
   .career-item { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
   .career-era { font-size: 16px; }
+  .career-list li { grid-template-columns: 1fr; gap: 6px; }
+  .career-note { grid-column: auto; }
 }
 
 /* ── 活動ギャラリー ── */
@@ -776,9 +804,11 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .activity-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  align-items: stretch;
 }
 .activity-item {
   margin: 0; overflow: hidden; border-radius: 4px;
+  display: flex; flex-direction: column;
   background: var(--white);
   border: 1px solid rgba(0,180,192,0.18);
   box-shadow: none;
@@ -789,6 +819,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .activity-item-photo {
   width: 100%; aspect-ratio: 4/3; overflow: hidden;
+  flex: 0 0 auto;
 }
 .activity-item-photo img {
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -800,6 +831,9 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px; font-weight: 700; color: var(--ink);
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .activity-kicker {
   display: block;
@@ -813,6 +847,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   display: block; font-family: 'Noto Sans JP', sans-serif;
   font-size: 13px; font-weight: 500; color: var(--bark);
   letter-spacing: 0; line-height: 1.9; margin-top: 8px;
+  overflow-wrap: anywhere;
 }
 
 /* ── 王子保（地元紹介） ── */
@@ -823,6 +858,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 .hometown-section {
   display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: center;
 }
+.hometown-text { min-width: 0; }
 .hometown-photo {
   position: relative;
 }
@@ -854,6 +890,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   display: grid;
   grid-template-columns: 108px minmax(0, 1fr);
   gap: 18px;
+  align-items: start;
   padding: 14px 0;
   border-bottom: 1px solid rgba(0,180,192,0.14);
 }
@@ -863,7 +900,8 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
-  padding-top: 4px;
+  line-height: 1.9;
+  padding-top: 1px;
 }
 .hometown-fact span {
   color: #2c1f14;
@@ -888,7 +926,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .sns-box {
   background: var(--white); border: 1px solid rgba(77,184,188,0.25);
-  padding: 52px; display: flex; align-items: center; gap: 48px;
+  padding: 52px; display: flex; align-items: flex-start; gap: 48px;
   box-shadow: 0 4px 24px rgba(44,31,20,0.06);
 }
 .sns-icon {
@@ -904,9 +942,11 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-family: 'Noto Serif JP', serif;
   font-size: 22px; font-weight: 900; color: var(--ink); margin-bottom: 8px;
 }
+.sns-text { min-width: 0; }
 .sns-text p { font-size: 14px; color: var(--gray); line-height: 2; margin-bottom: 24px; }
 .sns-actions {
   display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: flex-start;
 }
 .sns-btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -914,6 +954,9 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
   padding: 13px 24px; text-decoration: none; transition: background 0.25s, color 0.25s, border-color 0.25s;
   cursor: pointer;
+  min-height: 46px;
+  text-align: center;
+  line-height: 1.4;
 }
 .sns-btn:hover { background: var(--asagi-d); }
 .sns-btn.secondary {
