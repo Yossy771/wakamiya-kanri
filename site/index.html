@@ -314,14 +314,16 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 
 /* ── OMOI レイアウト ── */
 .omoi-top {
-  display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.85fr);
-  gap: clamp(72px, 7vw, 96px); align-items: stretch;
-  margin-bottom: 72px;
+  display: grid; grid-template-columns: 1fr;
+  gap: 34px; align-items: stretch;
+  max-width: 960px;
+  margin: 0 auto 72px;
 }
 .omoi-photo {
   overflow: hidden; border-radius: 4px;
   box-shadow: 0 14px 36px rgba(0,0,0,0.14);
-  min-height: 480px; height: 100%;
+  min-height: 0; height: auto;
+  aspect-ratio: 16 / 9;
   min-width: 0;
 }
 .omoi-photo img {
@@ -332,7 +334,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 
 .omoi-side {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 8px 0;
+  padding: 0;
   min-width: 0;
 }
 .omoi-quote {
@@ -341,13 +343,15 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   color: var(--ink); line-height: 1.78;
   padding-left: 24px;
   border-left: 4px solid var(--asagi);
-  margin-bottom: 36px;
-  max-width: 100%;
+  margin-bottom: 30px;
+  max-width: 760px;
   overflow-wrap: anywhere;
 }
 
 .profile-list {
-  display: flex; flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 44px;
   width: 100%;
   background: rgba(255,255,255,0.76);
   border-top: 1px solid rgba(0,180,192,0.22);
@@ -361,6 +365,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   overflow-wrap: anywhere;
 }
 .profile-row:last-child { border-bottom: none; }
+.profile-row:nth-last-child(-n+2) { border-bottom: none; }
 .profile-row strong {
   color: var(--asagi-d); font-weight: 700;
   font-size: 11px; letter-spacing: 0.08em;
@@ -422,15 +427,16 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 .omoi-cta:hover svg { transform: translateX(2px); }
 
 @media (max-width: 1120px) {
-  .omoi-top { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; }
-  .omoi-photo { min-height: 320px; }
-  .omoi-side { max-width: 760px; }
+  .omoi-top { gap: 28px; margin-bottom: 48px; }
 }
 
 @media (max-width: 900px) {
-  .omoi-photo { min-height: 240px; }
+  .omoi-photo { aspect-ratio: 4 / 3; }
   .omoi-quote { font-size: 22px; padding-left: 18px; margin-bottom: 24px; }
+  .profile-list { grid-template-columns: 1fr; }
   .profile-row { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
+  .profile-row:nth-last-child(-n+2) { border-bottom: 1px solid rgba(0,180,192,0.14); }
+  .profile-row:last-child { border-bottom: none; }
   .omoi-body p { font-size: 15px; line-height: 2.0; margin-bottom: 24px; }
   .omoi-closing { padding: 18px 20px; margin: 32px 0 20px; }
 }
@@ -439,13 +445,17 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 .omoi-photo {
   overflow: hidden; border-radius: 4px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 .omoi-photo img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: none;
 }
 .omoi-photo:hover img { transform: none; }
+
+@media (max-width: 900px) {
+  .omoi-photo { aspect-ratio: 4 / 3; }
+}
 
 /* ── 3本の矢 ── */
 #yumi-wrap {
