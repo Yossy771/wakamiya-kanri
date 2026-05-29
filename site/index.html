@@ -845,12 +845,38 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   font-size: 16px; line-height: 2.2; color: #2c1f14; margin-bottom: 18px;
 }
 .hometown-text p:last-child { margin-bottom: 0; }
+.hometown-facts {
+  margin-top: 28px;
+  border-top: 1px solid rgba(0,180,192,0.22);
+  border-bottom: 1px solid rgba(0,180,192,0.22);
+}
+.hometown-fact {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,180,192,0.14);
+}
+.hometown-fact:last-child { border-bottom: none; }
+.hometown-fact strong {
+  color: var(--asagi-d);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding-top: 4px;
+}
+.hometown-fact span {
+  color: #2c1f14;
+  font-size: 14px;
+  line-height: 1.9;
+}
 
 @media (max-width: 900px) {
   .activity-grid { grid-template-columns: 1fr; gap: 18px; }
   .hometown-section { grid-template-columns: 1fr; gap: 32px; }
   .hometown-photo img { max-height: 320px; }
   .hometown-photo::before { display: none; }
+  .hometown-fact { grid-template-columns: 1fr; gap: 6px; }
 }
 
 /* ── SNS ── */
@@ -1268,9 +1294,19 @@ footer {
       </div>
       <div class="hometown-text reveal">
         <div class="section-label">OUR HOMETOWN</div>
-        <h2 class="hometown-title">王子保駅から、<br>毎日見ている景色。</h2>
-        <p>朝、王子保駅のホームに立つと、福井の山並みが目に入る。<br>幼い頃から、ずっと変わらない風景。</p>
-        <p>変わらない景色の中で、暮らす人の表情はどう変わっていくか——<br>その問いを胸に、今日も歩いています。</p>
+        <h2 class="hometown-title">王子保駅から、<br>日々の変化を見る。</h2>
+        <p>朝のホーム、通学する子どもたち、車で行き交う人の流れ。毎日見ている景色の中に、地域の変化があります。</p>
+        <p>王子保で暮らす人の声を聞き、足元の課題をひとつずつ見つめることから、まちづくりを始めます。</p>
+        <div class="hometown-facts" aria-label="王子保で見ていること">
+          <div class="hometown-fact">
+            <strong>見ること</strong>
+            <span>通学、通勤、買い物、集まり。毎日の移動と暮らしの変化。</span>
+          </div>
+          <div class="hometown-fact">
+            <strong>聞くこと</strong>
+            <span>子育て世代、高齢者、働く人、地域活動に関わる人の実感。</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
