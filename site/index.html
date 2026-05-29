@@ -403,6 +403,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   letter-spacing: 0.04em;
   overflow-wrap: anywhere;
 }
+.omoi-pullquote-line { display: inline; }
 
 /* 締めの一言 */
 .omoi-closing {
@@ -447,7 +448,9 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   .profile-row:nth-last-child(-n+2) { border-bottom: 1px solid rgba(0,180,192,0.14); }
   .profile-row:last-child { border-bottom: none; }
   .omoi-body p { font-size: 15px; line-height: 2.0; margin-bottom: 24px; }
-  .omoi-pullquote { text-align: left; }
+  .omoi-pullquote { text-align: center; }
+  .omoi-pullquote-line,
+  .career-quote-line { display: block; }
   .omoi-closing { padding: 18px 20px; margin: 32px 0 20px; }
 }
 
@@ -702,6 +705,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   text-align: left;
   overflow-wrap: anywhere;
 }
+.career-quote-line { display: inline; }
 .career-bio-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
 .career-bio-row > div {
   display: grid;
@@ -1152,6 +1156,7 @@ footer {
     font-size: 19px !important;
     line-height: 1.75 !important;
     padding: 22px 18px !important;
+    text-align: center;
   }
   .omoi-closing {
     font-size: 18px !important;
@@ -1159,7 +1164,11 @@ footer {
     padding: 20px 18px !important;
   }
   .career-intro { padding: 24px 20px; }
-  .career-quote { font-size: 17px; line-height: 1.78; }
+  .career-quote {
+    font-size: 17px;
+    line-height: 1.78;
+    text-align: left;
+  }
   .career-item { padding: 24px 0; }
   .career-body h4 { font-size: 16px; line-height: 1.55; }
   .career-note { font-size: 14px; line-height: 1.85; }
@@ -1299,7 +1308,7 @@ footer {
 
       <p>そんなとき、高校生と高齢者が真剣に政治を語る光景に出会いました。胸が熱くなりました。そして、確信しました。</p>
 
-      <p class="omoi-pullquote">「政治を自分ごとにすれば、町は盛り上がる」</p>
+      <p class="omoi-pullquote"><span class="omoi-pullquote-line">「政治を自分ごとにすれば、</span><span class="omoi-pullquote-line">町は盛り上がる」</span></p>
 
       <p class="omoi-closing">人生二周目は、すべてをここ王子保、そして越前市に捧げます。</p>
 
@@ -1321,7 +1330,7 @@ footer {
     <div class="section-title">経歴</div>
 
     <div class="career-intro reveal">
-      <p class="career-quote">県外に行きたくて仕方なかったのですが、神様は許しませんでした。</p>
+      <p class="career-quote"><span class="career-quote-line">県外に行きたくて</span><span class="career-quote-line">仕方なかったのですが、</span><span class="career-quote-line">神様は許しませんでした。</span></p>
       <div class="career-bio-row">
         <div><strong>生年月日</strong>1964年12月4日（61歳）</div>
         <div><strong>血液型</strong>A型</div>
