@@ -324,7 +324,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   margin: 0 auto 72px;
 }
 .omoi-photo {
-  overflow: hidden; border-radius: 4px;
+  overflow: hidden; border-radius: 8px;
   box-shadow: 0 14px 36px rgba(0,0,0,0.14);
   min-height: 0; height: auto;
   aspect-ratio: 16 / 9;
@@ -483,6 +483,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   content: '';
   position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect x='0' y='0' width='80' height='80' fill='none' stroke='%234db8bc' stroke-width='0.3' stroke-opacity='0.08'/%3E%3Cline x1='0' y1='40' x2='80' y2='40' stroke='%234db8bc' stroke-width='0.2' stroke-opacity='0.06'/%3E%3Cline x1='40' y1='0' x2='40' y2='80' stroke='%234db8bc' stroke-width='0.2' stroke-opacity='0.06'/%3E%3C/svg%3E");
+  display: none;
 }
 
 #yumi-wrap .section-title { color: var(--white); }
@@ -508,6 +509,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   border-left: 4px solid var(--asagi);
   padding: 30px 34px;
   background: rgba(255,255,255,0.055);
+  border-radius: 8px;
 }
 .yumi-intro-kicker {
   font-size: 17px;
@@ -537,6 +539,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 8px;
 }
 .yumi-intro-side h3 {
   font-family: 'Noto Serif JP', serif;
@@ -567,20 +570,24 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 
 .yumi-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
 }
 
 .yumi-card {
-  background: rgba(255,255,255,0.04);
-  padding: 52px 40px; position: relative;
-  transition: background 0.4s, transform 0.4s;
+  background: rgba(255,255,255,0.065);
+  border: 1px solid rgba(77,184,188,0.22);
+  border-radius: 8px;
+  padding: 46px 34px 32px; position: relative;
+  display: flex; flex-direction: column;
+  transition: background 0.25s, border-color 0.25s;
   overflow: hidden;
   cursor: pointer;
   min-width: 0;
 }
 .yumi-card:hover {
-  background: rgba(77,184,188,0.1);
-  transform: translateY(-2px);
+  background: rgba(255,255,255,0.085);
+  border-color: rgba(77,184,188,0.5);
+  transform: none;
 }
 .yumi-card:focus-visible {
   outline: 2px solid #4db8bc;
@@ -588,9 +595,11 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .yumi-more {
   display: inline-flex; align-items: center;
-  margin-top: 20px;
-  background: transparent;
+  margin-top: auto;
+  align-self: flex-start;
+  background: rgba(77,184,188,0.08);
   border: 1px solid rgba(77,184,188,0.5);
+  border-radius: 999px;
   color: #4db8bc;
   padding: 11px 22px; font-size: 17px; font-weight: 800;
   letter-spacing: 0.15em; cursor: pointer;
@@ -647,18 +656,19 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: var(--asagi);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.5s ease;
+  opacity: 0.72;
+  transform: none; transform-origin: left;
+  transition: opacity 0.25s ease;
 }
-.yumi-card:hover::before { transform: scaleX(1); }
+.yumi-card:hover::before { opacity: 1; }
 
 
 
 .yumi-num {
   font-family: 'Noto Serif JP', serif;
-  font-size: 64px; font-weight: 900;
-  color: var(--asagi); opacity: 0.32; line-height: 1;
-  margin-bottom: 18px;
+  font-size: 44px; font-weight: 900;
+  color: var(--asagi); opacity: 0.78; line-height: 1;
+  margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
 .yumi-num::after {
@@ -679,10 +689,12 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 .yumi-desc {
   font-size: 18px; color: rgba(255,255,255,0.82); line-height: 2;
   overflow-wrap: anywhere;
+  margin-bottom: 28px;
 }
 
 /* 矢が刺さる演出 */
 .yumi-stick {
+  display: none;
   position: absolute; bottom: 0; right: 32px;
   width: 3px; height: 0;
   background: linear-gradient(to bottom, var(--asagi), transparent);
@@ -820,7 +832,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   align-items: stretch;
 }
 .activity-item {
-  margin: 0; overflow: hidden; border-radius: 4px;
+  margin: 0; overflow: hidden; border-radius: 8px;
   display: flex; flex-direction: column;
   background: var(--white);
   border: 1px solid rgba(0,180,192,0.18);
@@ -877,13 +889,13 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .hometown-photo img {
   width: 100%; max-height: 560px; object-fit: cover; display: block;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 12px 40px rgba(44,31,20,0.16);
 }
 .hometown-photo::before {
   content: ''; position: absolute; top: 16px; left: 16px; right: -16px; bottom: -16px;
   border: 1px solid rgba(0,180,192,0.4);
-  border-radius: 4px; z-index: -1;
+  border-radius: 8px; z-index: -1;
 }
 .hometown-title {
   font-family: 'Noto Serif JP', serif;
@@ -941,6 +953,7 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   background: var(--white); border: 1px solid rgba(77,184,188,0.25);
   padding: 52px; display: flex; align-items: flex-start; gap: 48px;
   box-shadow: 0 4px 24px rgba(44,31,20,0.06);
+  border-radius: 8px;
 }
 .sns-icon {
   width: 76px; height: 76px; border-radius: 20px; flex-shrink: 0;
@@ -1095,7 +1108,7 @@ footer {
   .yumi-intro { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
   .yumi-intro-main,
   .yumi-intro-side { padding: 24px 22px; }
-  .yumi-grid { grid-template-columns: 1fr; gap: 2px; }
+  .yumi-grid { grid-template-columns: 1fr; gap: 16px; }
   .yumi-lead { font-size: 17px; }
   .yumi-intro-kicker { font-size: 16px; }
   .yumi-intro-text,
@@ -1185,7 +1198,8 @@ footer {
   .yumi-intro-main,
   .yumi-intro-side { padding: 22px 20px; }
   .yumi-intro-title { font-size: 24px; line-height: 1.5; }
-  .yumi-card { padding: 34px 22px; }
+  .yumi-grid { gap: 14px; }
+  .yumi-card { padding: 32px 22px 28px; }
   .yumi-title { font-size: 22px; line-height: 1.5; }
   .yumi-sub { font-size: 15px; }
   .yumi-desc { font-size: 16px; line-height: 1.85; }
