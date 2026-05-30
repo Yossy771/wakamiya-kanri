@@ -677,9 +677,28 @@ section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
 }
 .yumi-title {
   font-family: 'Noto Serif JP', serif;
-  font-size: 24px; font-weight: 900; color: var(--white);
-  margin-bottom: 12px; line-height: 1.6;
-  overflow-wrap: anywhere;
+  font-weight: 900; color: var(--white);
+  margin-bottom: 16px; line-height: 1.12;
+  display: grid; gap: 12px;
+  overflow-wrap: normal;
+}
+.yumi-title-label {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px; font-weight: 800;
+  color: rgba(255,255,255,0.64);
+  letter-spacing: 0.18em;
+}
+.yumi-title-word {
+  display: flex; flex-wrap: wrap;
+  column-gap: 0.22em; row-gap: 6px;
+  font-size: clamp(36px, 4vw, 50px);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+.yumi-title-word span {
+  display: inline-block;
+  white-space: nowrap;
 }
 .yumi-sub {
   font-size: 17px; letter-spacing: 0.12em;
@@ -1115,7 +1134,9 @@ footer {
   .yumi-intro-side p { font-size: 16px; }
   .yumi-intro-keys span { font-size: 16px; }
   .yumi-card { padding: 42px 28px; }
-  .yumi-title { font-size: 23px; }
+  .yumi-title { margin-bottom: 16px; }
+  .yumi-title-word { font-size: clamp(34px, 8vw, 44px); }
+  .yumi-title-label { font-size: 12px; }
   .yumi-sub { font-size: 16px; }
   .yumi-desc { font-size: 17px; }
   .yumi-more { font-size: 16px; padding: 10px 18px; }
@@ -1200,7 +1221,9 @@ footer {
   .yumi-intro-title { font-size: 24px; line-height: 1.5; }
   .yumi-grid { gap: 14px; }
   .yumi-card { padding: 32px 22px 28px; }
-  .yumi-title { font-size: 22px; line-height: 1.5; }
+  .yumi-title { gap: 10px; margin-bottom: 14px; }
+  .yumi-title-word { font-size: clamp(34px, 12vw, 42px); line-height: 1.08; }
+  .yumi-title-label { font-size: 12px; letter-spacing: 0.16em; }
   .yumi-sub { font-size: 15px; }
   .yumi-desc { font-size: 16px; line-height: 1.85; }
   .yumi-more { width: 100%; justify-content: center; min-height: 48px; }
@@ -1520,27 +1543,36 @@ footer {
 
       <div class="yumi-card reveal" role="button" tabindex="0" onclick="openPolicy(1)" onkeydown="openPolicyByKey(event, 1)">
         <div class="yumi-num">01</div>
-        <div class="yumi-title">1本目<br>主体的で実行力のある議会・まちづくり</div>
-        <div class="yumi-sub">市民 × 議会</div>
-        <p class="yumi-desc">市民参画型予算や市民会議、街角議員カフェなどを通じ、市民と政治を語り合う参加の舞台をつくります。</p>
+        <div class="yumi-title">
+          <span class="yumi-title-label">1本目</span>
+          <span class="yumi-title-word"><span>居場所</span></span>
+        </div>
+        <div class="yumi-sub">ひとりにしない地域の拠点</div>
+        <p class="yumi-desc">子ども・高齢者・若者が自然に顔を合わせ、安心して過ごせる居場所を各地区につくります。</p>
         <button class="yumi-more" type="button" onclick="event.stopPropagation(); openPolicy(1)">詳しく見る →</button>
         <div class="yumi-stick"></div>
       </div>
 
       <div class="yumi-card reveal" role="button" tabindex="0" onclick="openPolicy(2)" onkeydown="openPolicyByKey(event, 2)">
         <div class="yumi-num">02</div>
-        <div class="yumi-title">2本目<br>三世代が集う居場所づくり</div>
-        <div class="yumi-sub">居場所 × 地区</div>
-        <p class="yumi-desc">孤独を溶かす地域共生プラットフォームとして、子ども・高齢者・若者が自然に顔を合わせる拠点を各地区に配置します。</p>
+        <div class="yumi-title">
+          <span class="yumi-title-label">2本目</span>
+          <span class="yumi-title-word"><span>自然と遊び</span><span>融合</span></span>
+        </div>
+        <div class="yumi-sub">自然 × 遊び × 学び</div>
+        <p class="yumi-desc">地域の自然や文化をフィールドに、遊びながら学び、世代を超えて生きる知恵を受け継ぐ場を育てます。</p>
         <button class="yumi-more" type="button" onclick="event.stopPropagation(); openPolicy(2)">詳しく見る →</button>
         <div class="yumi-stick"></div>
       </div>
 
       <div class="yumi-card reveal" role="button" tabindex="0" onclick="openPolicy(3)" onkeydown="openPolicyByKey(event, 3)">
         <div class="yumi-num">03</div>
-        <div class="yumi-title">3本目<br>「未来の芽」を育む、体験型教育の推進</div>
-        <div class="yumi-sub">文化・自然 × 子ども × シニア</div>
-        <p class="yumi-desc">地域の自然や文化伝統をフィールドに、子どもたちが自ら問いを立てて解決する探求塾を公的に支援します。</p>
+        <div class="yumi-title">
+          <span class="yumi-title-label">3本目</span>
+          <span class="yumi-title-word"><span>議会</span></span>
+        </div>
+        <div class="yumi-sub">市民 × 議会</div>
+        <p class="yumi-desc">市民参画型予算や市民会議、街角議員カフェなどを通じ、市民と政治を語り合う参加の舞台をつくります。</p>
         <button class="yumi-more" type="button" onclick="event.stopPropagation(); openPolicy(3)">詳しく見る →</button>
         <div class="yumi-stick"></div>
       </div>
@@ -1625,28 +1657,8 @@ footer {
 const POLICIES = {
   1: {
     num: '1本目 / ARROW 01',
-    title: '主体的で実行力のある議会・まちづくり',
-    sub: '市民 × 議会',
-    sections: [
-      {
-        title: '市民が主役となる参加の舞台',
-        text: '「市民参画型予算」「市民会議」の常設、「デジタル・ガバナンス・アカデミー」の創設、「街角議員カフェ」の開催などを行い、市民と政治を語り合います。目的は市民の政治「参加」です。市民が主役であること、議会はプロフェッショナルな議論の場であることの両立を目指し、市民が自ら動ける舞台を作ります。'
-      },
-      {
-        title: '市政・議会の見える化',
-        text: '市民と議会とのコミュニケーションを活性化します。市民の積極的な参加により、相乗効果が生まれ、議会が活気づき、役所もしっかり仕事ができる環境を整えます。'
-      },
-      {
-        title: '2040年からのバックキャスト',
-        text: '地域の個性を磨き、新たな活力を生成するため、歴史・自然資源のネットワーク化、白崎公園・湯場修景用地の有効活用、産業の利便性向上を進めます。'
-      }
-    ],
-    tags: ['市民参画型予算', '市民会議', '街角議員カフェ', '議会の見える化']
-  },
-  2: {
-    num: '2本目 / ARROW 02',
-    title: '三世代が集う居場所づくり',
-    sub: '居場所 × 地区',
+    title: '居場所',
+    sub: 'ひとりにしない地域の拠点',
     sections: [
       {
         title: '孤独を溶かす地域共生プラットフォーム',
@@ -1663,10 +1675,10 @@ const POLICIES = {
     ],
     tags: ['コミュニティ食堂', '高齢者健康づくり', '若者ワークスペース', '防災拠点', '移動ネットワーク']
   },
-  3: {
-    num: '3本目 / ARROW 03',
-    title: '「未来の芽」を育む、体験型教育の推進',
-    sub: '地域の宝：文化・自然 × 子ども × シニア',
+  2: {
+    num: '2本目 / ARROW 02',
+    title: '自然と遊び融合',
+    sub: '自然 × 遊び × 学び',
     sections: [
       {
         title: '探求塾を公的に支援',
@@ -1682,6 +1694,26 @@ const POLICIES = {
       }
     ],
     tags: ['探求塾', '体験型教育', '文化伝統', '自然体験', '多世代循環']
+  },
+  3: {
+    num: '3本目 / ARROW 03',
+    title: '議会',
+    sub: '市民 × 議会',
+    sections: [
+      {
+        title: '市民が主役となる参加の舞台',
+        text: '「市民参画型予算」「市民会議」の常設、「デジタル・ガバナンス・アカデミー」の創設、「街角議員カフェ」の開催などを行い、市民と政治を語り合います。目的は市民の政治「参加」です。市民が主役であること、議会はプロフェッショナルな議論の場であることの両立を目指し、市民が自ら動ける舞台を作ります。'
+      },
+      {
+        title: '市政・議会の見える化',
+        text: '市民と議会とのコミュニケーションを活性化します。市民の積極的な参加により、相乗効果が生まれ、議会が活気づき、役所もしっかり仕事ができる環境を整えます。'
+      },
+      {
+        title: '2040年からのバックキャスト',
+        text: '地域の個性を磨き、新たな活力を生成するため、歴史・自然資源のネットワーク化、白崎公園・湯場修景用地の有効活用、産業の利便性向上を進めます。'
+      }
+    ],
+    tags: ['市民参画型予算', '市民会議', '街角議員カフェ', '議会の見える化']
   }
 };
 
